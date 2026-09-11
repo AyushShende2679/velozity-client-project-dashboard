@@ -32,6 +32,16 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
+// Root Welcome Endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    name: 'Velozity Real-Time Client Project Dashboard API',
+    status: 'online',
+    version: '1.0.0',
+    healthCheck: '/api/v1/health',
+  });
+});
+
 // Health Check Endpoint
 app.get('/api/v1/health', (req, res) => {
   res.status(200).json({
